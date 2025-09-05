@@ -23,9 +23,9 @@
         }
 
         .header {
-            background-color: #f8f9fa;
+           
             padding: 15px 0;
-            border-bottom: 1px solid #e9ecef;
+           
         }
 
         .logo {
@@ -93,31 +93,39 @@
         }
 
         .hero-section {
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-PJ2Tsc9RLmIPg0pnQYmWmuOLoEf1pT.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            position: relative;
             min-height: 500px;
             display: flex;
             align-items: center;
-            position: relative;
             margin: 0 80px;
-            /* removed border-radius: 15px; */
+            overflow: hidden;
+        }
+
+        /* Added video background styling */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
         .hero-section::before {
             content: '';
-            position: relative;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background: rgba(173, 216, 230, 0.3);
+            z-index: 2;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             text-align: center;
             color: white;
         }
@@ -248,6 +256,26 @@
             .product-item {
                 padding: 20px;
             }
+
+            /* Hide desktop video on mobile */
+            .hero-video.desktop {
+                display: none;
+            }
+
+            .hero-video.mobile {
+                display: block;
+            }
+        }
+
+        /* Hide mobile video on desktop */
+        @media (min-width: 769px) {
+            .hero-video.mobile {
+                display: none;
+            }
+
+            .hero-video.desktop {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -312,6 +340,15 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
+        <!-- Added video elements for background -->
+        <video class="hero-video desktop" autoplay muted loop playsinline>
+            <source src="img/casa_moderna_web.webm" type="video/webm">
+            <source src="img/casa_moderna_web_hd.mp4" type="video/mp4">
+        </video>
+        <video class="hero-video mobile" autoplay muted loop playsinline>
+            <source src="img/casa_moderna_mobile.mp4" type="video/mp4">
+        </video>
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">
