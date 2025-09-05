@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAWE ENERGIE - Bombas de Calor de Alta Eficiência</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Updated to use the provided cleaner code structure -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-teal: #20B2AA;
+            --dark-gray: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #f8f9fa;
+            padding: 15px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-teal);
+            text-decoration: none;
+        }
+
+        .logo::before {
+            content: "W";
+            background-color: var(--primary-teal);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark-gray) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            padding: 8px 0 !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-teal) !important;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 300px;
+        }
+
+        .search-input {
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            padding: 10px 45px 10px 20px;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .hero-section {
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home-PJ2Tsc9RLmIPg0pnQYmWmuOLoEf1pT.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin: 0 80px;
+            /* removed border-radius: 15px; */
+        }
+
+        .hero-section::before {
+            content: '';
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(173, 216, 230, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-title .highlight {
+            color: var(--primary-teal);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--primary-teal);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #1a9999;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(32, 178, 170, 0.4);
+        }
+
+        /* Removed all product card CSS and simplified product styling */
+        .products-section {
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .product-item {
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .product-link {
+            display: block;
+            text-decoration: none;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 200px;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-link:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .product-capacity {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .product-description {
+            color: var(--primary-teal);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .search-container {
+                margin-top: 15px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            .hero-section {
+                margin: 0 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .product-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Top row: Logo and Search -->
+            <div class="row align-items-center mb-3">
+                <div class="col-md-6">
+                    <!-- Updated to use logo image instead of text logo -->
+                    <a href="#">
+                        <img src="./Logo/logo_green.png" alt="WAWE ENERGIE Logo" width="260" height="70">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-container ms-auto">
+                        <input type="text" class="search-input" placeholder="Procurar">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom row: Navigation Menu -->
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- Added ms-auto class to position hamburger menu to the right -->
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <!-- Removed mx-auto to keep menu aligned to left -->
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Início</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Produtos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Benefícios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sobre Nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Certificações</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Bombas de Calor de <span class="highlight">Alta Eficiência</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Soluções profissionais para instaladores e empresas de manutenção
+                        </p>
+                        <a href="#" class="cta-button">
+                            Ver Catálogo Completo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <!-- Updated section title and subtitle to match reference design -->
+                    <h2 class="section-title">Produtos em Destaque</h2>
+                    <p class="section-subtitle">As nossas bombas de calor mais procuradas por profissionais</p>
+                </div>
+            </div>
+            <!-- Updated products with images, specifications and clickable links -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product-item">
+                        <a href="#" class="product-link" onclick="goToProductDetails('top-air-outlet')">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Top Air Outlet" class="product-image">
+                        </a>
+                        <h3 class="product-title">Top Air Outlet</h3>
+                        <p class="product-capacity">Capacidade: 200/270L</p>
+                        <p class="product-description">Ideal para habitações até 200m²</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product-item">
+                        <a href="#" class="product-link" onclick="goToProductDetails('wall-mounted')">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Wall Mounted" class="product-image">
+                        </a>
+                        <h3 class="product-title">Wall Mounted</h3>
+                        <p class="product-capacity">Capacidade: 60/80/100L</p>
+                        <p class="product-description">Para edifícios comerciais e industriais</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product-item">
+                        <a href="#" class="product-link" onclick="goToProductDetails('side-air-outlet')">
+                            <img src="/placeholder.svg?height=200&width=200" alt="Side Air Outlet" class="product-image">
+                        </a>
+                        <h3 class="product-title">Side Air Outlet</h3>
+                        <p class="product-capacity">Capacidade: 200/250/300L</p>
+                        <p class="product-description">Solução compacta e eficiente</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="product-item">
+                        <a href="#" class="product-link" onclick="goToProductDetails('r410a-hot-water')">
+                            <img src="/placeholder.svg?height=200&width=200" alt="R410A Hot Water" class="product-image">
+                        </a>
+                        <h3 class="product-title">R410A Hot Water</h3>
+                        <p class="product-capacity">Capacidade: 100 - 500L</p>
+                        <p class="product-description">Máxima capacidade e desempenho</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated JavaScript to match the cleaner structure -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search functionality
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchInput = document.querySelector('.search-input');
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                console.log('Searching for:', searchTerm);
+                // Add your search logic here
+            }
+        });
+
+        // Enter key search
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.search-btn').click();
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add smooth scroll logic here if needed
+            });
+        });
+
+        function goToProductDetails(productId) {
+            console.log('Navigating to product details:', productId);
+            // Here you would typically navigate to a product details page
+            // For now, just showing an alert
+            alert('Navegando para detalhes do produto: ' + productId);
+        }
+    </script>
+</body>
+</html>
